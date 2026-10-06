@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NEXUS OS // AUTH</title>
+    <link rel="stylesheet" href="/css/tokens.css">
+    <style>
+        body {
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; background-color: var(--obsidian);
+        }
+        .auth-panel {
+            border: var(--border-thin); background: var(--bg-panel);
+            padding: 40px; width: 400px; font-family: var(--font-mono);
+        }
+        .auth-panel h1 { color: var(--signal); font-size: 1.2rem; margin-top: 0; }
+        input[type="password"] {
+            width: 100%; background: var(--bg-elevated); border: var(--border-thin);
+            color: var(--signal); padding: 10px; margin: 20px 0; outline: none; box-sizing: border-box;
+        }
+        input[type="password"]:focus { border-color: var(--signal); }
+        button {
+            width: 100%; background: var(--signal); color: var(--obsidian);
+            border: none; padding: 10px; font-weight: bold; cursor: pointer;
+            font-family: var(--font-mono);
+        }
+        button:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <div class="auth-panel">
+        <h1>NEXUS_OS // GATEWAY</h1>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">AUTHORIZATION REQUIRED FOR CA FINAL COMMAND CENTER</p>
+        
+        <form action="/auth" method="POST">
+            <input type="password" name="password" placeholder="ENTER CREDENTIALS" autofocus required>
+            <button type="submit">INITIALIZE SYSTEM</button>
+        </form>
+        <script>
+            if (window.location.search.includes('error=1')) {
+                document.write('<p style="color: red; font-size: 0.8rem; margin-top: 15px;">[!] ACCESS DENIED. INVALID CREDENTIALS.</p>');
+            }
+        </script>
+    </div>
+</body>
+</html>

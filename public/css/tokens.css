@@ -1,0 +1,46 @@
+/* Absolute Design System */
+:root {
+    --obsidian: #031211;
+    --bg-panel: #061A18;
+    --bg-elevated: #08211F;
+    
+    --ivory: #E8E4D3;
+    --text-primary: #E8E4D3;
+    --text-secondary: rgba(232,228,211,0.68);
+    --text-muted: rgba(232,228,211,0.42);
+    
+    --signal: #00AEBB;
+    --accent-soft: rgba(0,174,187,0.12);
+    --accent-line: rgba(0,174,187,0.35);
+    
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --font-sans: 'Inter', system-ui, sans-serif;
+    
+    --border-thin: 1px solid var(--accent-line);
+}
+
+body {
+    background-color: var(--obsidian);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    margin: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 280px 1fr 320px;
+    grid-template-rows: 60px 1fr 250px;
+    height: 100vh;
+}
+
+#header { grid-column: 1 / -1; border-bottom: var(--border-thin); display: flex; align-items: center; padding: 0 20px; font-family: var(--font-mono); }
+#sidebar { grid-column: 1; grid-row: 2 / -1; border-right: var(--border-thin); background: var(--bg-panel); }
+#workspace { grid-column: 2; grid-row: 2; position: relative; display: flex; flex-direction: column; }
+#media-container { flex: 1; background: #000; display: flex; justify-content: center; align-items: center; }
+#telemetry-terminal { grid-column: 2; grid-row: 3; border-top: var(--border-thin); background: var(--bg-elevated); font-family: var(--font-mono); font-size: 12px; padding: 10px; overflow-y: auto; }
+#tools-panel { grid-column: 3; grid-row: 2 / -1; border-left: var(--border-thin); background: var(--bg-panel); }
+
+#cmd-palette {
+    display: none; position: fixed; top: 20%; left: 50%; transform: translateX(-50%);
+    width: 600px; background: var(--bg-elevated); border: 1px solid var(--signal);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8); z-index: 9999;
+}
+#cmd-input { width: 100%; background: transparent; border: none; color: var(--ivory); font-size: 1.2rem; padding: 15px; font-family: var(--font-mono); outline: none; border-bottom: var(--border-thin); }
