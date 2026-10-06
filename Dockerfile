@@ -16,7 +16,7 @@ COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/public ./public
 
-RUN npm ci --omit=dev && \
+RUN npm install --omit=dev && \
     adduser -D -h /app nexususer && \
     chown -R nexususer:nexususer /app
 
